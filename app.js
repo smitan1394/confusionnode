@@ -37,14 +37,14 @@ connect.then((db) => {
 
 var app = express();
 // Secure traffic only
-app.all('*', (req, res, next) => {
+/*app.all('*', (req, res, next) => {
   if (req.secure) {
     return next();
   }
   else {
     res.redirect(307, 'https://' + req.hostname + ':' + app.get('secPort') + req.url);
   }
-});
+});*/
 
 
 // view engine setup
@@ -58,7 +58,9 @@ app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser('12345-67890-09876-54321'));
 
 app.use(passport.initialize());
-
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + `/dist/conFusion/index.html`)); // load the single view file (angular will handle the page changes on the front-end)
+});
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
