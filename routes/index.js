@@ -4,7 +4,7 @@ const path = require('path');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-    res.sendFile(path.join(__dirname + `/dist/conFusion/index.html`)); 
+    res.sendFile(path.join(__dirname + `../dist/conFusion/index.html`)); 
 });
 
 module.exports = router;
