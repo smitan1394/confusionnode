@@ -3,8 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
-    res.sendFile(`../dist/conFusion/index.html`); 
+  res.render('../dist/conFusion/index.html', { title: 'Express' });
 });
 
 module.exports = router;
