@@ -37,14 +37,14 @@ connect.then((db) => {
 
 var app = express();
 // Secure traffic only
-/*app.all('*', (req, res, next) => {
+app.all('*', (req, res, next) => {
   if (req.secure) {
     return next();
   }
   else {
     res.redirect(307, 'https://' + req.hostname + ':' + app.get('secPort') + req.url);
   }
-});*/
+});
 
 
 // view engine setup
@@ -86,7 +86,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + `/dist/conFusion/index.html`)); // load the single view file (angular will handle the page changes on the front-end)
-});
+
 module.exports = app;
