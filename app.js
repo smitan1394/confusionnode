@@ -58,14 +58,12 @@ app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser('12345-67890-09876-54321'));
 
 app.use(passport.initialize());
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + `/dist/conFusion/index.html`)); // load the single view file (angular will handle the page changes on the front-end)
-});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-//app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(__dirname + '/dist/conFusion'));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/dishes',dishRouter);
 app.use('/promotions',promoRouter);
 app.use('/leaders',leaderRouter);
