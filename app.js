@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport');
 
-
+//just adding a comment
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 var authenticate = require('./authenticate');
